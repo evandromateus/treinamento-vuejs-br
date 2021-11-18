@@ -7,8 +7,20 @@
           <img class="w-full" src="../../assets/images/logo_white.png" alt="logo">
         </div>
         <div class="flex">
-          <button @click="() => emit('account-create')" class="px-6 py-2 font-bold rounded-full text-white">Crie uma conta</button>
-          <button @click="() => emit('login')" class="px-6 py-2 font-bold bg-white rounded-full text-brand-main">Entrar</button>
+          <button
+            id="header-create-account-button"
+            @click="() => emit('account-create')"
+            class="px-6 py-2 font-bold rounded-full text-white"
+          >
+            Crie uma conta
+          </button>
+          <button
+            id="header-login-button"
+            @click="() => emit('login')"
+            class="px-6 py-2 font-bold bg-white rounded-full text-brand-main"
+          >
+            Entrar
+          </button>
         </div>
       </div>
 
@@ -20,7 +32,13 @@
         <p class="text-lg font-medium text-white">Receba ideias, reclamações e feedbacks com um <br class="hidden lg:inline-block">
         simples widget na página.</p>
         <div>
-          <button class="px-6 py-2 mt-10 font-bold bg-white rounded-full text-brand-main">Crie uma conta grátis</button>
+          <button
+            @click="() => emit('account-create')"
+            id="cta-create-account-button"
+            class="px-6 py-2 mt-10 font-bold bg-white rounded-full text-brand-main"
+          >
+            Crie uma conta grátis
+          </button>
         </div>
       </div>
 
