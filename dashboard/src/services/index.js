@@ -5,14 +5,14 @@ import FeedbacksService from './feedbacks'
 import router from '../router'
 import { setGlobalLoading } from '../store/global'
 
-const API_ENV = {
-  production: '',
+const API_ENVS = {
+  production: 'https://backend-treinamento-vue3-gilt.vercel.app/',
   development: '',
   local: 'http://localhost:3000'
 }
 
 const httpClient = axios.create({
-  baseURL: API_ENV.local
+  baseURL: API_ENVS[process.env.NODE_ENV] ?? API_ENVS.local
 })
 
 httpClient.interceptors.request.use(config => {
