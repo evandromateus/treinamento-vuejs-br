@@ -22,4 +22,24 @@ describe('Credencials', () => {
 
     expect(oldApikey).to.not.equal(newApikey)
   })
+
+  it('Should copy the api key correcly', () => {
+    cy.visit(APP_URL)
+
+    cy.get('#header-login-button').click()
+    cy.get('#modal-login')
+
+    cy.get('#email-field').type('igor@igor.me')
+    cy.get('#password-field').type('1234')
+    cy.get('#submit-button').click()
+
+    cy.wait(4000)
+    cy.visit(APP_URL + '/credencials')
+    cy.wait(2000)
+    const apiKey = cy.get('#apikey').invoke('text')
+    cy.get('#copy-apikey').click()
+    navigator.clipboard.readText().then(text => {
+      expect(text).to.equal(apiKey)
+    })
+  })
 })

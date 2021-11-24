@@ -26,7 +26,13 @@
         <span v-if="state.hasError">Erro ao carregar a api key</span>
         <span v-else id="apikey">{{ store.User.currentUser.apiKey }}</span>
         <div class="flex ml-20" v-if="!state.hasError">
-          <icon @click="handleCopy" class="cursor-pointer" name="copy" :color="brandColors.graydark" size="24"/>
+          <icon
+            id="copy-apikey"
+            @click="handleCopy"
+            class="cursor-pointer"
+            name="copy"
+            :color="brandColors.graydark"
+            size="24"/>
           <icon
             id="generate-apikey"
             @click="handleGenerateApikey"
