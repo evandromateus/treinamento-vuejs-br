@@ -21,7 +21,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import Widget from '../Widget'
+import Widget from '../Widget/index.vue'
 
 export default defineComponent({
   components: { Widget }
