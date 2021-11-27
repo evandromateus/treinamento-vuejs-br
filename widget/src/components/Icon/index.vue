@@ -7,13 +7,17 @@ import Loading from './Loading.vue'
 import Copy from './Copy.vue'
 import ChevronDown from './ChevronDown.vue'
 import Chat from './Chat.vue'
+import Close from './Close.vue'
+import ArrowLeft from './ArrowLeft.vue'
 
 export default {
   components: {
     Loading,
     Copy,
     Chat,
-    ChevronDown
+    ChevronDown,
+    Close,
+    ArrowLeft
   },
   props: {
     name: { type: String, required: true }
