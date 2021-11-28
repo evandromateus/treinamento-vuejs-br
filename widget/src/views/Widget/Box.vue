@@ -11,10 +11,10 @@
         v-if="canShowAditionalControlAndInfo"
         @click="() => ({})"
         :disabled="canGoBack"
-        class="{ invisible: canGoBack }"
+        :class="{ invisible: canGoBack }"
         class="text-xl text-gray-800"
       >
-        <icon name="arrowRight" :color="colors.gray['800']"/>
+        <icon name="arrowLeft" :color="colors.gray['800']"/>
       </button>
 
       <p
@@ -25,7 +25,7 @@
       </p>
 
       <button
-        @click="() => emit('close-box'))"
+        @click="() => emit('close-box')"
         class="text-xl text-gray-800"
       >
         <icon name="close" :color="colors.gray['800']"/>
@@ -41,10 +41,10 @@
 
 <script lang="ts">
 import { defineComponent, computed, ComputedRef, SetupContext } from 'vue'
-import { brand } from '../../../palette'
-import colors from 'tailwindcss/colors'
 import useStore from '../../hooks/store'
 import Icon from '../../components/Icon/index.vue'
+const palette = require('../../../palette')
+const colors = require('tailwindcss/colors')
 
 interface SetupReturn {
   emit: SetupContext['emit'];
@@ -57,6 +57,7 @@ interface SetupReturn {
 
 export default defineComponent({
   emits: ['close-box'],
+  components: { Icon },
   setup (_, { emit }: SetupContext): SetupReturn {
     const store = useStore()
 
@@ -90,7 +91,7 @@ export default defineComponent({
       canGoBack,
       canShowAditionalControlAndInfo,
       colors,
-      brandColors: brand
+      brandColors: palette.brand
     }
   }
 })
